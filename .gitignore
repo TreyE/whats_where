@@ -45,5 +45,6 @@ whats_where_release_for_docker.zip
 docker/release/whats_where_release.zip
 docker/testing/development_status_report.zip
 docker_releases
+codedeploy_releases
 
 *.swp

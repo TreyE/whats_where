@@ -17,3 +17,4 @@ test_reports/elixir/*.html
 /*.csv
 raw_files
 /priv/static/assets/*
+codedeploy_releases
