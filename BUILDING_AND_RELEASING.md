@@ -13,5 +13,5 @@ Before doing any builds, for production or otherwise, make sure to edit the `con
 **TODO: Update to include CodeDeploy build commands**
 
 There are a variety of commands available to create release packages:
-1. `docker/docker_compile_release` - Cross-compile a stand-alone zip for Debian that you can deploy on your own Debian server.  Contains the application and a file describing how to configure the environment, database, and the environment variables you care about.  Use this when you don't want to deploy to a docker instance, but run it on your own CentOS7 server and host your own database.
+1. `docker/docker_compile_release` - Cross-compile a stand-alone zip for Debian that you can deploy on your own Debian server.  Contains the application and a file describing how to configure the environment, database, and the environment variables you care about.  Use this when you don't want to deploy to a docker instance, but run it on your own Debian server and host your own database.
 2. `compile_release` - Build a release into the '_build' directory.  **This release will be targeted to the machine on which you did the building**.  You should really only use this to see if you can run the server locally and for release debugging.
