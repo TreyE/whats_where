@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :whats_where, WhatsWhereWeb.Repo,
+config :whats_where, WhatsWhere.Repo,
   adapter: Ecto.Adapters.Postgres,
   load_from_system_env: true,
   pool_size: 20

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./bin/whats_where migrate
+./bin/whats_where foreground
