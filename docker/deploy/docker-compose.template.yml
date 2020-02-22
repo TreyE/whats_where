@@ -5,7 +5,7 @@ services:
     image: SUBSTITUTE_RELEASE_IMAGE_NAME_HERE
     command: "/bin/bash -cl /home/elixir/whats_where/start_server"
     environment:
-      - DATABASE_HOST=db
+      - DATABASE_HOST=whats_where_db
       - DATABASE_USER=postgres
       - DATABASE_PASSWORD=postgres
       - DATABASE_NAME=postgres
@@ -13,12 +13,12 @@ services:
       - PORT=8080
       - API_KEY=DEPLOYMENT_TEST_API_KEY
     depends_on:
-      - db
+      - whats_where_db
     links:
-      - db
+      - whats_where_db
     ports:
       - 9500:8080
-  db:
+  whats_where_db:
     image: postgres
     environment:
       - POSTGRES_USER=postgres
