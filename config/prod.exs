@@ -1,5 +1,10 @@
 use Mix.Config
 
+config :whats_where, WhatsWhereWeb.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  load_from_system_env: true,
+  pool_size: 20
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -10,8 +15,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :whats_where, WhatsWhereWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  load_from_system_env: true,
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info

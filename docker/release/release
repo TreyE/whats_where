@@ -1,0 +1,7 @@
+#!/bin/bash
+
+./compile_release && \
+  pushd _build/prod/rel && \
+  zip -r whats_where_release.zip whats_where && \
+  popd && \
+  cp _build/prod/rel/whats_where_release.zip /home/elixir/test_results/

@@ -44,4 +44,38 @@ defmodule WhatsWhereWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug WhatsWhereWeb.Router
+
+  @doc """
+  Callback invoked for dynamically configuring the endpoint.
+
+  It receives the endpoint configuration and checks if
+  configuration should be loaded from the system environment.
+  """
+  def init(_key, config) do
+    if config[:load_from_system_env] do
+      new_config = load_config_from_environment(config)
+      {:ok, new_config}
+    else
+      {:ok, config}
+    end
+  end
+
+  defp load_config_from_environment(config) do
+    port = System.get_env("PORT") || "8080"
+    host = System.get_env("HOST") || "localhost"
+    config
+      |> Keyword.put(:http, [:inet6, port: port])
+      |> Keyword.put(:url, [host: host, port: port])
+      |> Keyword.put(:x_api_key, get_api_key())
+  end
+
+  if (Mix.env == :prod) do
+    defp get_api_key do
+      System.get_env("API_KEY")
+    end
+  else
+    defp get_api_key do
+      "TESTKEY"
+    end
+  end
 end

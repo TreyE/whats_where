@@ -5,7 +5,7 @@ defmodule WhatsWhere.MixProject do
     [
       app: :whats_where,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -56,7 +56,8 @@ defmodule WhatsWhere.MixProject do
       {:credo, "~> 1.1", only: :dev},
       {:junit_formatter, "~> 3.0", only: [:test]},
       {:credo_ex_coveralls_uncovered, git: "https://github.com/TreyE/credo_ex_coveralls_uncovered.git" , only: [:dev]},
-      {:credo_report_card, git: "https://github.com/TreyE/credo_report_card.git" , only: [:dev]}
+      {:credo_report_card, git: "https://github.com/TreyE/credo_report_card.git" , only: [:dev]},
+      {:distillery, "~> 2.1"}
     ]
   end
 
