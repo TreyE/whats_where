@@ -17,7 +17,7 @@ services:
     links:
       - db
     ports:
-      - 9000:8080
+      - 9500:8080
   db:
     image: postgres
     environment:
