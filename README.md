@@ -1,4 +1,5 @@
 # WhatsWhere
+[![Build Status](https://travis-ci.com/TreyE/whats_where.svg?branch=master)](https://travis-ci.com/TreyE/whats_where)
 
 An environment map.
 
