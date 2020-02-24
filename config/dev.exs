@@ -64,7 +64,7 @@ config :whats_where, WhatsWhereWeb.Endpoint,
   ]
 
 config :whats_where, WhatsWhere.Authentication.Guardian,
-  issuer: "Yellr",
+  issuer: "WhatsWhere",
   secret_key: "rqvGULwGescBTkL8sgigX+AxL4m992vlrkNy7QkO1bifWuFEGQuNWBPS3kx2IBBf"
 
 # Do not include metadata nor timestamps in development logs
