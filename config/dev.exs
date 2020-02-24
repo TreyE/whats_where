@@ -2,8 +2,6 @@ use Mix.Config
 
 # Configure your database
 config :whats_where, WhatsWhere.Repo,
-  username: "postgres",
-  password: "postgres",
   database: "whats_where_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

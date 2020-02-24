@@ -29,7 +29,7 @@ defmodule WhatsWhere.Data.Account do
     |> validate_length(:password_confirmation, min: 8, max: 255)
     |> validate_confirmation(:password)
     |> unique_constraint(:username, name: :unique_username)
-    |> unsafe_validate_unique([:username], Yellr.Repo)
+    |> unsafe_validate_unique([:username], WhatsWhere.Repo)
     |> downcase_username()
     |> encrypt_password()
   end
