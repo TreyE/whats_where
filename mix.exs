@@ -57,7 +57,9 @@ defmodule WhatsWhere.MixProject do
       {:junit_formatter, "~> 3.0", only: [:test]},
       {:credo_ex_coveralls_uncovered, git: "https://github.com/TreyE/credo_ex_coveralls_uncovered.git" , only: [:dev]},
       {:credo_report_card, git: "https://github.com/TreyE/credo_report_card.git" , only: [:dev]},
-      {:distillery, "~> 2.1"}
+      {:distillery, "~> 2.1"},
+      {:guardian, "~> 1.2.1"},
+      {:pbkdf2_elixir, "~> 1.0"}
     ]
   end
 
