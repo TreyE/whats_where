@@ -1,6 +1,8 @@
 defmodule WhatsWhereWeb.UserSocket do
   use Phoenix.Socket
 
+  channel("environment_updates", WhatsWhereWeb.Channels.EnvironmentUpdatesChannel)
+
   ## Channels
   # channel "room:*", WhatsWhereWeb.RoomChannel
 

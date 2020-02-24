@@ -7,6 +7,8 @@ defmodule WhatsWhere do
   if it comes from the database, an external API or others.
   """
 
+  alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
+
   def blank_environment() do
     WhatsWhere.Data.Environment.blank()
   end
@@ -29,5 +31,9 @@ defmodule WhatsWhere do
 
   def environment_list() do
     WhatsWhere.Repo.all(WhatsWhere.Data.Environment)
+  end
+
+  def broadcast_environment_updates() do
+    EnvironmentUpdatesChannel.broadcast_environments_updated()
   end
 end

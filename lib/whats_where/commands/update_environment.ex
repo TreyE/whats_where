@@ -18,6 +18,7 @@ defmodule WhatsWhere.Commands.UpdateEnvironment do
 
   defp update_environment(cs) do
     record = Repo.update!(cs)
+    WhatsWhere.broadcast_environment_updates()
     {:ok, record}
   end
 end
