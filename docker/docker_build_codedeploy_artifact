@@ -37,5 +37,5 @@ chmod o+x ./docker_releases/deploy
 
 cp ./docker/deploy/appspec.yml ./docker_releases/
 
-pushd docker_releases && zip whats_where.zip deploy docker-compose.yml appspec.yml && popd
-cp -f ./docker_releases/whats_where.zip ./codedeploy_releases/
+pushd docker_releases && zip whats-where.zip deploy docker-compose.yml appspec.yml && popd
+cp -f ./docker_releases/whats-where.zip ./codedeploy_releases/

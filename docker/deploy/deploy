@@ -1,2 +1,2 @@
 docker pull SUBSTITUTE_RELEASE_IMAGE_NAME_HERE
-docker stack deploy -c /home/ubuntu/scripts/docker-compose.yml whats_where
+docker stack deploy -c /home/ubuntu/scripts/docker-compose.yml whats-where

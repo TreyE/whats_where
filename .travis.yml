@@ -34,3 +34,31 @@ after_failure:
 
 after_success:
   - ./travis/post_build_results
+  - |
+    if [[ $TRAVIS_PULL_REQUEST == “false” ]] && [[ $TRAVIS_BRANCH == “master” ]]; then
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      ./docker/docker_build_codedeploy_artifact
+    fi
+
+deploy:
+  - provider: s3
+    bucket: "ideacrew-com"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    region: us-east-1
+    local_dir: codedeploy_releases
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: codedeploy
+    bucket: "ideacrew-com"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    key: whats-where.zip
+    bundle_type: zip
+    application: whats-where
+    deployment_group: whats-where-grp
+    region: us-east-1
+    wait_until_deployed: true
+    on:
+      branch: master
