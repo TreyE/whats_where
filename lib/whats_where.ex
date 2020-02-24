@@ -8,6 +8,7 @@ defmodule WhatsWhere do
   """
 
   alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
+  alias WhatsWhere.Queries.Environments
 
   def blank_environment() do
     WhatsWhere.Data.Environment.blank()
@@ -30,7 +31,7 @@ defmodule WhatsWhere do
   end
 
   def environment_list() do
-    WhatsWhere.Repo.all(WhatsWhere.Data.Environment)
+    Environments.environment_list()
   end
 
   def broadcast_environment_updates() do

@@ -5,14 +5,6 @@ defmodule WhatsWhere.ReleaseTasks do
   Currently consists only of providing the ability to run database migrations.
   """
 
-  @start_apps [
-    :crypto,
-    :ssl,
-    :postgrex,
-    :ecto,
-    :telemetry
-  ]
-
   @repos Application.get_env(:whats_where, :ecto_repos, [])
 
   def migrate(_argv) do

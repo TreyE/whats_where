@@ -1,3 +1,13 @@
 /* This file is for your main application css. */
 
 @import "./bootstrap.css";
+
+.resultcontainer {
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.card {
+  margin: 0.25em;
+}

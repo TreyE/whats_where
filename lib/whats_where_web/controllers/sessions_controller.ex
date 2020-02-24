@@ -15,7 +15,7 @@ defmodule WhatsWhereWeb.SessionsController do
       _ ->
         conn
         |> WhatsWhere.Authentication.Accounts.perform_login(session)
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> redirect(to: Routes.environments_path(conn, :index))
     end
   end
 

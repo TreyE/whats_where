@@ -3,9 +3,9 @@
   <div class="card <%= background_environment_status(environment) %>">
     <div class="card-body">
       <h1 class="card-title"><%= environment.name %></h1>
-      <div class="card-text">
       <%= if has_owner(environment) do %>
-      <p class="lead">Owner: <%= environment.owner %></p>
+      <div class="card-text">
+      <h3><%= environment.owner %></h3>
       </div>
       <% end %>
     </div>
