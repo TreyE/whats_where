@@ -31,11 +31,11 @@ compose_host_file_string=`cat ./docker_releases/docker-compose.yml.1`
 echo "${compose_host_file_string/SUBSTITUTE_DEPLOY_HOST_NAME_HERE/$TRAVIS_DEPLOY_HOSTNAME}" > docker_releases/docker-compose.yml
 
 deploy_file_string=`cat ./docker/deploy/deploy`
-echo "${deploy_file_string/SUBSTITUTE_RELEASE_IMAGE_NAME_HERE/$image_name}" > docker_releases/deploy
-chmod u+x ./docker_releases/deploy
-chmod o+x ./docker_releases/deploy
+echo "${deploy_file_string/SUBSTITUTE_RELEASE_IMAGE_NAME_HERE/$image_name}" > docker_releases/deploy_whats_where
+chmod u+x ./docker_releases/deploy_whats_where
+chmod o+x ./docker_releases/deploy_whats_where
 
 cp ./docker/deploy/appspec.yml ./docker_releases/
 
-pushd docker_releases && zip whats-where.zip deploy docker-compose.yml appspec.yml && popd
+pushd docker_releases && zip whats-where.zip deploy_whats_where docker-compose.yml appspec.yml && popd
 cp -f ./docker_releases/whats-where.zip ./codedeploy_releases/
