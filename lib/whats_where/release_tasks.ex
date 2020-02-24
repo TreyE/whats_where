@@ -9,17 +9,19 @@ defmodule WhatsWhere.ReleaseTasks do
     :crypto,
     :ssl,
     :postgrex,
-    :ecto
+    :ecto,
+    :telemetry
   ]
 
   @repos Application.get_env(:whats_where, :ecto_repos, [])
 
   def migrate(_argv) do
-    start_services()
-
-    run_migrations()
-
-    stop_services()
+    Enum.each(@repos, fn(repo_mod) ->
+      Ecto.Migrator.with_repo(repo_mod, fn(repo) ->
+        migrations_path = priv_path_for(repo, "migrations")
+        Ecto.Migrator.run(repo, migrations_path, :up, all: true)
+      end)
+    end)
   end
 
   def seed(_argv) do
