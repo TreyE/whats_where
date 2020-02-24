@@ -1,0 +1,28 @@
+<div class="row">
+  <h1>Environments</h1>
+</div>
+<div class="row">
+  <%= link("New Environment", to: Routes.environments_path(@conn, :new), class: "btn btn-primary") %>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for environment <- @environments do %>
+        <tr>
+          <td><%= environment.name %></td>
+          <td><%= environment.status %></td>
+          <td><%= environment.owner %></td>
+          <td><%= link("Edit", to: Routes.environments_path(@conn, :edit, environment.id), class: "btn btn-primary") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

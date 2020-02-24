@@ -36,6 +36,7 @@ defmodule WhatsWhereWeb.Router do
     pipe_through([:browser, :check_login])
 
     delete "/sessions", SessionsController, :destroy
+    resources "/environments", EnvironmentsController, only: [:new, :create, :index, :edit, :update]
   end
   # Other scopes may use custom stacks.
   # scope "/api", WhatsWhereWeb do
