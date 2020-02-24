@@ -9,9 +9,9 @@ otp_release:
 
 env:
   global:
-    - LANG=en_US.UTF-8
-    - LANGUAGE=en_US:en
-    - LC_ALL=en_US.UTF-8
+    - LANG=en_US.utf8
+    - LANGUAGE=en_US.utf8
+    - LC_ALL=en_US.utf8
 
 services:
   - postgresql
