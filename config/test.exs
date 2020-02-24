@@ -12,6 +12,10 @@ config :whats_where, WhatsWhereWeb.Endpoint,
   http: [port: 4002],
   server: false
 
+config :whats_where, WhatsWhere.Authentication.Guardian,
+  issuer: "WhatsWhere",
+  secret_key: "rqvGULwGescBTkL8sgigX+AxL4m992vlrkNy7QkO1bifWuFEGQuNWBPS3kx2IBBf"
+
 config :junit_formatter,
   report_dir: "."
 

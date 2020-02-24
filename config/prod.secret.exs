@@ -7,6 +7,9 @@ use Mix.Config
 config :whats_where, WhatsWhereWeb.Endpoint,
   secret_key_base: (System.get_env("HTTP_SECRET_KEY_BASE") || raise "SECRET KEY BASE UNSPECIFIED")
 
+config :whats_where, WhatsWhere.Authentication.Guardian,
+  issuer: "WhatsWhere",
+  secret_key: (System.get_env("JWT_SECRET_KEY") || raise "JWT SECRET KEY UNSPECIFIED")
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix
