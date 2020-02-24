@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/scripts
+    destination: /home/ubuntu/scripts/whats_where
 permissions:
-  - object: /home/ubuntu/scripts
+  - object: /home/ubuntu/scripts/whats_where
     pattern: "deploy"
     mode: 755
 hooks:
