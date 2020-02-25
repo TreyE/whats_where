@@ -12,6 +12,7 @@ defmodule WhatsWhere.Commands.CreateDeployment do
 
   defp build_deployment(cs) do
     record = Repo.insert!(cs)
+    WhatsWhere.broadcast_deployment_updates()
     {:ok, record}
   end
 end

@@ -13,6 +13,7 @@ defmodule WhatsWhere.Commands.CreateEnvironment do
   defp build_environment(cs) do
     record = Repo.insert!(cs)
     WhatsWhere.broadcast_environment_updates()
+    WhatsWhere.broadcast_deployment_updates()
     {:ok, record}
   end
 end
