@@ -1,6 +1,6 @@
 #!/bin/bash
 
-image_host="treyedocker"
+image_host="${DOCKERHUB_HOST_ACCOUNT}"
 tag=`git rev-parse HEAD`
 tag_name=whats_where_deploy:deploy_${tag}
 compose_file_string=`cat docker/deploy/docker-compose.template.yml`
