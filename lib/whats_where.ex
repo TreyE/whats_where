@@ -9,6 +9,7 @@ defmodule WhatsWhere do
 
   alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
   alias WhatsWhere.Queries.Environments
+  alias WhatsWhere.Queries.Programs
 
   def blank_environment() do
     WhatsWhere.Data.Environment.blank()
@@ -28,6 +29,26 @@ defmodule WhatsWhere do
 
   def update_environment_from_params(id, params) do
     WhatsWhere.Commands.UpdateEnvironment.update_environment_from_params(id, params)
+  end
+
+  def blank_program() do
+    WhatsWhere.Data.Program.blank()
+  end
+
+  def editable_program(id) do
+    WhatsWhere.Commands.UpdateProgram.get_editable_program(id)
+  end
+
+  def create_program_from_params(params) do
+    WhatsWhere.Commands.CreateProgram.create_program_from_params(params)
+  end
+
+  def update_program_from_params(id, params) do
+    WhatsWhere.Commands.UpdateProgram.update_program_from_params(id, params)
+  end
+
+  def program_list() do
+    Programs.program_list()
   end
 
   def environment_list() do

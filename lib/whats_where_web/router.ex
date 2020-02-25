@@ -37,6 +37,7 @@ defmodule WhatsWhereWeb.Router do
 
     delete "/sessions", SessionsController, :destroy
     resources "/environments", EnvironmentsController, only: [:new, :create, :index, :edit, :update]
+    resources "/programs", ProgramsController, except: [:show, :delete]
   end
   # Other scopes may use custom stacks.
   # scope "/api", WhatsWhereWeb do

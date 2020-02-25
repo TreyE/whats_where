@@ -1,0 +1,24 @@
+<div class="row">
+  <h1>Programs</h1>
+</div>
+<div class="row">
+  <%= link("New Program", to: Routes.programs_path(@conn, :new), class: "btn btn-primary") %>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for program <- @programs do %>
+        <tr>
+          <td><%= program.name %></td>
+          <td><%= link("Edit", to: Routes.programs_path(@conn, :edit, program.id), class: "btn btn-primary") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
