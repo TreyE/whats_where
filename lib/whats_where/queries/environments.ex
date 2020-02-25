@@ -11,4 +11,13 @@ defmodule WhatsWhere.Queries.Environments do
     )
     WhatsWhere.Repo.all(query)
   end
+
+  def environment_names_ids() do
+    query = (
+      from e in Environment,
+      order_by: e.name,
+      select: {e.name, e.id}
+    )
+    WhatsWhere.Repo.all(query)
+  end
 end

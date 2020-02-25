@@ -1,0 +1,28 @@
+<div class="row">
+  <h1>Deployments</h1>
+</div>
+<div class="row">
+  <%= link("New Deployment", to: Routes.deployments_path(@conn, :new), class: "btn btn-primary") %>
+</div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Environment</th>
+        <th>Program</th>
+        <th>Branch</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for deployment <- @deployments do %>
+        <tr>
+          <td><%= deployment.environment.name %></td>
+          <td><%= deployment.program.name %></td>
+          <td><%= deployment.branch %></td>
+          <td><%= link("Edit", to: Routes.deployments_path(@conn, :edit, deployment.id), class: "btn btn-primary") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

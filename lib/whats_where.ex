@@ -8,6 +8,7 @@ defmodule WhatsWhere do
   """
 
   alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
+  alias WhatsWhere.Queries.Deployments
   alias WhatsWhere.Queries.Environments
   alias WhatsWhere.Queries.Programs
 
@@ -47,6 +48,22 @@ defmodule WhatsWhere do
     WhatsWhere.Commands.UpdateProgram.update_program_from_params(id, params)
   end
 
+  def blank_deployment() do
+    WhatsWhere.Data.Deployment.blank()
+  end
+
+  def editable_deployment(id) do
+    WhatsWhere.Commands.UpdateDeployment.get_editable_deployment(id)
+  end
+
+  def create_deployment_from_params(params) do
+    WhatsWhere.Commands.CreateDeployment.create_deployment_from_params(params)
+  end
+
+  def update_deployment_from_params(id, params) do
+    WhatsWhere.Commands.UpdateDeployment.update_deployment_from_params(id, params)
+  end
+
   def program_list() do
     Programs.program_list()
   end
@@ -55,7 +72,19 @@ defmodule WhatsWhere do
     Environments.environment_list()
   end
 
+  def deployment_list() do
+    Deployments.deployment_list()
+  end
+
   def broadcast_environment_updates() do
     EnvironmentUpdatesChannel.broadcast_environments_updated()
+  end
+
+  def environment_names_ids() do
+    Environments.environment_names_ids()
+  end
+
+  def program_names_ids() do
+    Programs.program_names_ids()
   end
 end
