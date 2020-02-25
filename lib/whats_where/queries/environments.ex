@@ -6,6 +6,14 @@ defmodule WhatsWhere.Queries.Environments do
   def environment_list() do
     query = (
       from e in Environment,
+      order_by: e.name
+    )
+    WhatsWhere.Repo.all(query)
+  end
+
+  def display_environment_list() do
+    query = (
+      from e in Environment,
       order_by: e.name,
       where: (e.status != "unprovisioned")
     )

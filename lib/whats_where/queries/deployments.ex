@@ -17,4 +17,18 @@ defmodule WhatsWhere.Queries.Deployments do
     )
     WhatsWhere.Repo.all(query)
   end
+
+  def matrix_deployment_list() do
+    query = (
+      from d in Deployment,
+      join: p in Program,
+      on: d.program_id == p.id,
+      join: e in Environment,
+      on: d.environment_id == e.id,
+      preload: [:environment, :program],
+      order_by: [e.name, p.name, d.branch],
+      where: (e.status != "unprovisioned")
+    )
+    WhatsWhere.Repo.all(query)
+  end
 end

@@ -18,6 +18,7 @@ defmodule WhatsWhere.Commands.UpdateProgram do
 
   defp update_program(cs) do
     record = Repo.update!(cs)
+    WhatsWhere.broadcast_deployment_updates()
     {:ok, record}
   end
 end

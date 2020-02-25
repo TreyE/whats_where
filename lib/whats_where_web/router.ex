@@ -29,6 +29,7 @@ defmodule WhatsWhereWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/matrix", PageController, :matrix
     resources "/sessions", SessionsController, only: [:new, :create]
   end
 

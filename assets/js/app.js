@@ -12,6 +12,7 @@ import css from "../css/app.css"
 import "phoenix_html"
 
 import "./environment_change"
+import "./deployment_change"
 
 // Import local files
 //

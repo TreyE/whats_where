@@ -8,6 +8,7 @@ defmodule WhatsWhere do
   """
 
   alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
+  alias WhatsWhereWeb.Channels.DeploymentUpdatesChannel
   alias WhatsWhere.Queries.Deployments
   alias WhatsWhere.Queries.Environments
   alias WhatsWhere.Queries.Programs
@@ -72,12 +73,24 @@ defmodule WhatsWhere do
     Environments.environment_list()
   end
 
+  def display_environment_list() do
+    Environments.display_environment_list()
+  end
+
   def deployment_list() do
     Deployments.deployment_list()
   end
 
+  def matrix_deployment_list() do
+    Deployments.matrix_deployment_list()
+  end
+
   def broadcast_environment_updates() do
     EnvironmentUpdatesChannel.broadcast_environments_updated()
+  end
+
+  def broadcast_deployment_updates() do
+    DeploymentUpdatesChannel.broadcast_deployments_updated()
   end
 
   def environment_names_ids() do

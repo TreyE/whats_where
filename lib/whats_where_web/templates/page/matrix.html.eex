@@ -1,0 +1,33 @@
+<div class="row">
+<table class="table">
+<thead>
+<tr>
+<th><h3>Environment</h3></th>
+<%= for prog <- @deployment_matrix.programs do %>
+  <th><h3><%= prog %></h3></th>
+<% end %>
+</tr>
+</thead>
+<tbody>
+<%= for env <- @deployment_matrix.environments do %>
+  <tr class="<%= background_environment_status(env) %>">
+    <th>
+      <h3><%= env.name  %></h3>
+      <%= if has_owner(env) do %>
+        <h3><%= env.owner %></h3>
+      <% end %>
+    </th>
+    <%= for prog <- @deployment_matrix.programs do %>
+      <td>
+        <%= if WhatsWhereWeb.ViewModels.DeploymentMatrix.has_entry_for(@deployment_matrix, env, prog) do %>
+          <h3><%=  WhatsWhereWeb.ViewModels.DeploymentMatrix.get_entry!(@deployment_matrix, env, prog).branch %></h3>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<span id="whats_where_deployment_update_listener"></span>
