@@ -5,11 +5,14 @@ defmodule WhatsWhere.Commands.DestroyEnvironment do
 
   import Ecto.Query
 
-  def destroy_environment(id) do
+  def destroy_environment(
+      id,
+      notification_mod \\ WhatsWhere
+    ) do
     destroy_deployment_records(id)
     destroy_environment_record(id)
-    WhatsWhere.broadcast_environment_updates()
-    WhatsWhere.broadcast_deployment_updates()
+    notification_mod.broadcast_environment_updates()
+    notification_mod.broadcast_deployment_updates()
   end
 
   defp destroy_environment_record(id) do

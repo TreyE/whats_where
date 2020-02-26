@@ -59,7 +59,8 @@ defmodule WhatsWhere.MixProject do
       {:credo_report_card, git: "https://github.com/TreyE/credo_report_card.git" , only: [:dev]},
       {:distillery, "~> 2.1"},
       {:guardian, "~> 1.2.1"},
-      {:pbkdf2_elixir, "~> 1.0"}
+      {:pbkdf2_elixir, "~> 1.0"},
+      {:module_mocker, git: "https://github.com/TreyE/module_mocker.git", only: [:test]},
     ]
   end
 
