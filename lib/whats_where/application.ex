@@ -10,15 +10,19 @@ defmodule WhatsWhere.Application do
     children = [
       # Start the Ecto repository
       WhatsWhere.Repo,
-      # Start the endpoint when the application starts
-      WhatsWhereWeb.Endpoint
+      # Start things which require the repository
+      %{
+        id: WhatsWhere.RepositoryDependents,
+        type: :supervisor,
+        start: {WhatsWhere.RepositoryDependents, :start_link, []}
+      }
       # Starts a worker by calling: WhatsWhere.Worker.start_link(arg)
       # {WhatsWhere.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: WhatsWhere.Supervisor]
+    opts = [strategy: :one_for_all, name: WhatsWhere.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
