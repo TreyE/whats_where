@@ -1,5 +1,6 @@
 # WhatsWhere
 [![Build Status](https://travis-ci.com/TreyE/whats_where.svg?branch=master)](https://travis-ci.com/TreyE/whats_where)
+[![Coverage Status](https://coveralls.io/repos/github/TreyE/whats_where/badge.svg?branch=master)](https://coveralls.io/github/TreyE/whats_where?branch=master)
 
 An environment map.
 
