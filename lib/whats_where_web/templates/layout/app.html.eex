@@ -9,6 +9,9 @@
     <%= csrf_meta_tag() %>
   </head>
     <body>
+    <%= if WhatsWhere.Authentication.Accounts.authenticated?(@conn) do %>
+      <%= render WhatsWhereWeb.SharedView, "menu.html", assigns %>
+    <% end %>
     <div class="container-fluid">
       <%= render @view_module, @view_template, assigns %>
     </div>

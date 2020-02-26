@@ -3,6 +3,10 @@ defmodule WhatsWhere.Authentication.Accounts do
 
   alias WhatsWhere.Authentication.AuthenticationRequest
 
+  def authenticated?(conn) do
+    WhatsWhere.Authentication.Guardian.Plug.authenticated?(conn)
+  end
+
   def account_by_id(id) do
     Repo.get!(Yellr.Data.Account, id)
   end
