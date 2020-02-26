@@ -20,7 +20,10 @@
           <td><%= environment.name %></td>
           <td><%= environment.status %></td>
           <td><%= environment.owner %></td>
-          <td><%= link("Edit", to: Routes.environments_path(@conn, :edit, environment.id), class: "btn btn-primary") %></td>
+          <td>
+            <%= link("Edit", to: Routes.environments_path(@conn, :edit, environment.id), class: "btn btn-primary") %>
+            <%= link("Destroy", to: Routes.environments_path(@conn, :delete, environment.id), method: :delete, class: "btn btn-danger", data: [confirm: "This will destroy all deployments as well, are you sure?"]) %>
+          </td>
         </tr>
       <% end %>
     </tbody>

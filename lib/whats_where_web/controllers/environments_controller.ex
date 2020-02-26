@@ -31,4 +31,9 @@ defmodule WhatsWhereWeb.EnvironmentsController do
     environments = WhatsWhere.environment_list()
     render(conn, "index.html", %{environments: environments})
   end
+
+  def delete(conn, %{"id" => environment_id}) do
+    WhatsWhere.destroy_environment(environment_id)
+    redirect(conn, to: WhatsWhereWeb.Router.Helpers.environments_path(conn, :index))
+  end
 end

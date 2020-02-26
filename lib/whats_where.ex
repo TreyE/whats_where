@@ -9,6 +9,7 @@ defmodule WhatsWhere do
 
   alias WhatsWhereWeb.Channels.EnvironmentUpdatesChannel
   alias WhatsWhereWeb.Channels.DeploymentUpdatesChannel
+  alias WhatsWhere.Commands.DestroyEnvironment
   alias WhatsWhere.Queries.Deployments
   alias WhatsWhere.Queries.Environments
   alias WhatsWhere.Queries.Programs
@@ -99,5 +100,9 @@ defmodule WhatsWhere do
 
   def program_names_ids() do
     Programs.program_names_ids()
+  end
+
+  def destroy_environment(id) do
+    DestroyEnvironment.destroy_environment(id)
   end
 end

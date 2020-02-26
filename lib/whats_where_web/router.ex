@@ -37,7 +37,7 @@ defmodule WhatsWhereWeb.Router do
     pipe_through([:browser, :check_login])
 
     delete "/sessions", SessionsController, :destroy
-    resources "/environments", EnvironmentsController, only: [:new, :create, :index, :edit, :update]
+    resources "/environments", EnvironmentsController, except: [:show]
     resources "/programs", ProgramsController, except: [:show, :delete]
     resources "/deployments", DeploymentsController, except: [:show, :delete]
   end
