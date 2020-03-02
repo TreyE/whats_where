@@ -14,13 +14,13 @@
     <th>
       <h3><%= env.name  %></h3>
       <%= if has_owner(env) do %>
-        <h3><%= env.owner %></h3>
+        <h4><%= env.owner %></h4>
       <% end %>
     </th>
     <%= for prog <- @deployment_matrix.programs do %>
       <td>
         <%= if WhatsWhereWeb.ViewModels.DeploymentMatrix.has_entry_for(@deployment_matrix, env, prog) do %>
-          <h3><%=  WhatsWhereWeb.ViewModels.DeploymentMatrix.get_entry!(@deployment_matrix, env, prog).branch %></h3>
+          <h4><%=  WhatsWhereWeb.ViewModels.DeploymentMatrix.get_entry!(@deployment_matrix, env, prog).branch %></h4>
         <% end %>
       </td>
     <% end %>
