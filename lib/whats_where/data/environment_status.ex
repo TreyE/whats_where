@@ -2,6 +2,7 @@ defmodule WhatsWhere.Data.EnvironmentStatus do
   @allowed_statuses [
     "available",
     "in_use",
+    "reserved",
     "deploying",
     "down",
     "unprovisioned"

@@ -4,11 +4,11 @@ defmodule WhatsWhereWeb.PageView do
   def background_environment_status(environment) do
     case environment.status do
       "in_use" -> "bg-info"
+      "reserved" -> "bg-primary"
       "available" -> "bg-success"
       "deploying" -> "bg-warning"
       "down" -> "bg-danger"
-      "unprovisioned" -> "bg-dark"
-      _ -> "bg-primary"
+      _ -> "bg-dark"
     end
   end
 
