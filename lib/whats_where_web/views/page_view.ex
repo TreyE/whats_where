@@ -16,8 +16,7 @@ defmodule WhatsWhereWeb.PageView do
     case environment.owner do
       nil -> false
       "" -> false
-      "reserved" -> true
-      _ -> (environment.status == "in_use")
+      _ -> Enum.member?(["in_use", "reserved"], environment.status)
     end
   end
 end
